@@ -1,1 +1,1 @@
-web: python novator.py
+worker: python novator.py
