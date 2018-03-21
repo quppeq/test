@@ -1,12 +1,21 @@
+<<<<<<< HEAD
+=======
+import config
+>>>>>>> 56e6dc43cfc918bde56fabe5c507fad0e08baf02
 import telebot
 from telebot import types
 import shelve
 import random
 import requests
+<<<<<<< HEAD
+=======
+bot = telebot.TeleBot(config.token)
+>>>>>>> 56e6dc43cfc918bde56fabe5c507fad0e08baf02
 
 
 
 
+<<<<<<< HEAD
 
 
 from html.parser import HTMLParser
@@ -35,6 +44,8 @@ bot = telebot.TeleBot(token)
 
 
 
+=======
+>>>>>>> 56e6dc43cfc918bde56fabe5c507fad0e08baf02
 @bot.message_handler(commands=["start"])
 def mess(message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -70,15 +81,23 @@ def mess(message):
 @bot.message_handler(commands=["pidor", "help"])
 def mess(message):
     bot.send_message(message.chat.id, "{}, ти підор".format(message.chat.first_name))
+<<<<<<< HEAD
     pass
+=======
+>>>>>>> 56e6dc43cfc918bde56fabe5c507fad0e08baf02
 
 
 @bot.message_handler(regexp="Аніме")
 def mess(message):
     r = requests.get("https://danbooru.donmai.us/posts/"+str(random.randrange(3035774)))
+<<<<<<< HEAD
     html.feed(r.text)
     p = requests.get(html.url)
     bot.send_photo(message.chat.id, p.content)
+=======
+    config.html.feed(r.text)
+    bot.send_message(message.chat.id, config.html.url)
+>>>>>>> 56e6dc43cfc918bde56fabe5c507fad0e08baf02
 
 
 if __name__ == "__main__":
