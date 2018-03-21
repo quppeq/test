@@ -70,6 +70,7 @@ def mess(message):
 @bot.message_handler(commands=["pidor", "help"])
 def mess(message):
     bot.send_message(message.chat.id, "{}, ти підор".format(message.chat.first_name))
+    pass
 
 
 @bot.message_handler(regexp="Аніме")
