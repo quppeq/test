@@ -1,4 +1,4 @@
-import config
+﻿import config
 import telebot
 from telebot import types
 import shelve
@@ -9,8 +9,6 @@ bot = telebot.TeleBot(config.token)
 
 from html.parser import HTMLParser
 from html.entities import name2codepoint
-
-token = "562189430:AAG9Gx26wRCvH8Jeb-mB11tEkWu2FjaLitU"
 
 class Html(HTMLParser):
     url = ""
