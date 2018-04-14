@@ -1,8 +1,6 @@
 from html.parser import HTMLParser
 from html.entities import name2codepoint
 
-token = "562189430:AAG9Gx26wRCvH8Jeb-mB11tEkWu2FjaLitU"
-
 class Html(HTMLParser):
     url = ""
     def handle_starttag(self, tag, attrs):
