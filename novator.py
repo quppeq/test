@@ -7,7 +7,29 @@ import requests
 bot = telebot.TeleBot(config.token)
 from boto.s3.connection import *
 
+from html.parser import HTMLParser
+from html.entities import name2codepoint
 
+token = "562189430:AAG9Gx26wRCvH8Jeb-mB11tEkWu2FjaLitU"
+
+class Html(HTMLParser):
+    url = ""
+    def handle_starttag(self, tag, attrs):
+        t = 0
+        for attr in attrs:
+            if "data-large-file-url" in attr:
+                if "https" in attr[1]:
+                    self.url = attr[1]
+                else:
+                    self.url = "https://danbooru.donmai.us/" + attr[1]
+
+
+
+
+html = Html()
+
+
+bot = telebot.TeleBot(token)
 
 @bot.message_handler(commands=["start"])
 def mess(message):
@@ -46,11 +68,14 @@ def mess(message):
     bot.send_message(message.chat.id, "{}, ти підор".format(message.chat.first_name))
 
 
+
 @bot.message_handler(regexp="Аніме")
 def mess(message):
     r = requests.get("https://danbooru.donmai.us/posts/"+str(random.randrange(3035774)))
-    config.html.feed(r.text)
-    bot.send_message(message.chat.id, config.html.url)
+    html.feed(r.text)
+    p = requests.get(html.url)
+    bot.send_photo(message.chat.id, p.content)
+
 
 
 if __name__ == "__main__":
