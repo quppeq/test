@@ -1,11 +1,11 @@
-import config
+﻿import config
 import telebot
 from telebot import types
 import shelve
 import random
 import requests
 bot = telebot.TeleBot(config.token)
-
+from boto.s3.connection import *
 
 
 
