@@ -4,8 +4,8 @@ from telebot import types
 import shelve
 import random
 import requests
-bot = telebot.TeleBot(config.token)
 from boto.s3.connection import *
+bot = telebot.TeleBot(token)
 
 from html.parser import HTMLParser
 from html.entities import name2codepoint
