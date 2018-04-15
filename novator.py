@@ -4,7 +4,10 @@ from telebot import types
 import shelve
 import random
 import requests
-bot = telebot.TeleBot(config.token)
+import os
+token = os.environ["token"]
+
+bot = telebot.TeleBot(token)
 
 from html.parser import HTMLParser
 from html.entities import name2codepoint
