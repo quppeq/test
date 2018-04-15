@@ -1,5 +1,4 @@
-﻿import config
-import telebot
+﻿import telebot
 from telebot import types
 import shelve
 import random
